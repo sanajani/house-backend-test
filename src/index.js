@@ -33,6 +33,7 @@ const app = express();
 // app.use(hpp());
 
 const PORT = process.env.PORT || 5000;
+const HOST = '0.0.0.0'; // 👈 ADD THIS
 
 // import  UserRoute
 import userRoute from './routes/user/UserRoute.js';
@@ -70,7 +71,7 @@ app.use((req, res) => {
 app.use(customError);
 
 // Start the server
-app.listen(PORT, () => {
+app.listen(PORT, HOST,() => {
 
     connectToMongoDB();
     console.log(`Server is running on http://localhost:${PORT}`);
